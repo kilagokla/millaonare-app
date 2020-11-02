@@ -22,7 +22,7 @@ export class Answer {
     return this._title;
   }
 
-  public get isCorrec(): boolean {
+  public get isCorrect(): boolean {
     return this._isCorrect;
   }
 
@@ -76,7 +76,7 @@ export class Game {
       new Question('Как называется один из видов жуков?',
         [
           new Answer('A: Артиллерист'),
-          new Answer('B: омандор'),
+          new Answer('B: Kомандор'),
           new Answer('C: Канонир'),
           new Answer('D: Бомбардир', true)
         ]
