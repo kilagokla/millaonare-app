@@ -1,0 +1,102 @@
+.main-wrapper {
+    height: 600px;
+    background: linear-gradient(to bottom right, #00bcd466, #545598);
+}
+
+.question-section {
+    margin: 0;
+    padding-top: 50px;
+}
+
+.question-heading {
+    margin: 0 auto;
+    padding: 10px 0;
+    max-width: 800px;
+    color: #fff;
+    text-align: center;
+    border: 4px solid #fff;
+    border-radius: 50px;
+    background: linear-gradient(to bottom, #d3edf147, #00bcd4);
+}
+
+.buttons-wrapper {
+    margin: 0 auto;
+    padding-top: 50px;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.answer-button {
+    cursor: pointer;
+    height: 50px;
+    width: 400px;
+    color: #fff;
+    font-weight: bold;
+    border: 4px solid #fff;
+    border-radius: 50px;
+    background: linear-gradient(to bottom, #d3edf147, #00bcd4);
+}
+
+.answer-button:hover {
+    background: linear-gradient(to top, #d3edf147, #00bcd4);
+}
+
+.answer-button:focus {
+    outline-color: transparent;
+}
+
+.chosen-answer {
+    background: linear-gradient(to bottom, #f9d361, #FF9800);
+}
+
+.correct-answer {
+    background: linear-gradient(to bottom, #8BC34A, #4CAF50);
+}
+
+.incorrect-answer {
+    background: linear-gradient(to bottom, #e69587fa, #F44336);
+}
+
+.process-buttons-wrapper {
+    margin: 50px auto;
+}
+
+.confirm-button {
+    margin: 0 auto;
+    cursor: pointer;
+    height: 50px;
+    width: 200px;
+    display: block;
+    color: #fff;
+    font-weight: bold;
+    border: 4px solid #fff;
+    border-radius: 50px;
+    background: linear-gradient(to bottom, #ff3b3b59, #FF9800);
+}
+
+.next-button {
+    margin: 0 auto;
+    cursor: pointer;
+    height: 50px;
+    width: 200px;
+    display: block;
+    color: #fff;
+    font-weight: bold;
+    border: 4px solid #fff;
+    border-radius: 50px;
+    background: linear-gradient(to bottom, #ff3b3b59, #FF9800);
+}
+
+.confirm-button:hover,
+.next-button:hover {
+    background: linear-gradient(to top, #ff3b3b59, #FF9800);
+}
+
+
+/*temporary*/
+
+.button-hide {
+    display: none;
+}
