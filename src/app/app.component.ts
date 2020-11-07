@@ -57,6 +57,11 @@ export class Game {
   public get selectedAnswer(): Answer {
     return this._selectedAnswer;
   }
+
+  private _isAnswerSelected: boolean;
+  public get isAnswerSelected(): boolean {
+    return this._isAnswerSelected;
+  }
   
   private _isAnswerConfirmed: boolean;
   public get isAnswerConfirmed(): boolean {
@@ -80,9 +85,35 @@ export class Game {
           new Answer('C: Канонир'),
           new Answer('D: Бомбардир', true)
         ]
-      )];
+      ),
+      new Question('Как жители Лондона прозвали небоскреб Мэри-Экс, спроектированный Норманом Фостером?',
+        [
+          new Answer('A: Корнишон', true),
+          new Answer('B: Баклажан'),
+          new Answer('C: Кабачок'),
+          new Answer('D: Патиссон')
+        ]
+      ),
+      new Question('Что не бывает морским?',
+          [
+            new Answer('A: Рельс', true),
+            new Answer('B: Огурец'),
+            new Answer('C: Гребешок'),
+            new Answer('D: Узел')
+          ]
+      ),
+      new Question('С чем часто охотятся на рыбу протоптера между сезонами дождей?',
+          [
+            new Answer('A: С сетями'),
+            new Answer('B: С сачкамир'),
+            new Answer('C: С ружьями'),
+            new Answer('D: С лопатами', true)
+          ]
+        )
+    ];
     this._questionIndex = 0;
     this._isAnswerConfirmed = false;
+    this._isAnswerSelected = false;
   }
 
   public getQuestion(): Question {
@@ -91,6 +122,7 @@ export class Game {
 
   public selectAnswerHandler(answer: Answer): void {
     this._selectedAnswer = answer;
+    this._isAnswerSelected = true;
   }
 
   public confirmAnswer(): void {
@@ -104,5 +136,18 @@ export class Game {
     this._questionIndex++;
     this._selectedAnswer = null;
     this._isAnswerConfirmed = false;
+    this._isAnswerSelected = false;
   }
+
+  public getAnswerView(answer: Answer): {[key:string]: boolean}{
+    return {
+      'chosen-answer': this._selectedAnswer === answer,
+      'correct-answer': this._isAnswerConfirmed && answer.isCorrect,
+      'incorrect-answer': this._selectedAnswer === answer && this._isAnswerConfirmed && !answer.isCorrect
+    }
+
+  } 
+
+
+
 }

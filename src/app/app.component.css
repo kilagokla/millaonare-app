@@ -40,7 +40,7 @@
 }
 
 .answer-button:hover {
-    background: linear-gradient(to top, #d3edf147, #00bcd4);
+    background: linear-gradient(to bottom, #f9d361, #FF9800);
 }
 
 .answer-button:focus {

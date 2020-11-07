@@ -2,20 +2,42 @@
     <div class="question-section">
         <h2 class="question-heading">{{game.getQuestion().title}}</h2>
         <div class='buttons-wrapper'>
-            <button  class="answer-button" *ngFor="let answer of game.getQuestion().answers" (click)="game.isAnswerselected" [class.chosen-answer]="game.selectedAnswer">&nbsp;<span>{{answer.title}}</span></button>
+            <button
+                class="answer-button"
+                *ngFor="let answer of game.getQuestion().answers"
+                (click)="game.selectAnswerHandler(answer)"
+                [ngClass]="game.getAnswerView(answer)"
+            >
+                &nbsp;
+                <span>{{answer.title}}</span>
+            </button>
+
         </div>
         <div class='process-buttons-wrapper'>
-          <button class="confirm-button button-hide" >Подтвердить</button>
-          <button class="next-button button-hide" >Следующий вопрос</button>
+            <button
+                class="confirm-button"
+                *ngIf="game.isAnswerSelected && !game.isAnswerConfirmed"
+                (click)="game.confirmAnswer()"
+            >
+                Подтвердить
+            </button>
+
+            <button
+                class="next-button"
+                *ngIf="game.isAnswerConfirmed"
+                (click)="game.nextQuestionHandler()"
+            >
+                Следующий вопрос
+            </button>
         </div>
     </div>
 </section>
 
-<!--question.title}}-->
-<!--answer.title}}-->
-<!--*ngFor="let answer of question.answers"-->
-<!-- (click)="onClick()"-->
-<!-- (click)="confirmAnswer()"-->
-
-<!-- (click)="nextQuestionHandler()"-->
-<!--  (click)="selectAnswerHandler(answer)" [class.chosen-answer]="answer.isSelected" [class.correct-answer]="answer.isCorrect"-->
+<!-- question.title}} -->
+<!-- answer.title}} -->
+<!-- *ngFor="let answer of question.answers" -->
+<!-- (click)="onClick()" -->
+<!-- (click)="confirmAnswer()" -->
+<!-- [ngClass]="{'chosen-answer':game.isAnswerSelected, 'correct-answer':answer.isCorrect}" -->
+<!-- (click)="nextQuestionHandler()" -->
+<!-- (click)="selectAnswerHandler(answer)" [class.chosen-answer]="answer.isSelected" [class.correct-answer]="answer.isCorrect" -->
